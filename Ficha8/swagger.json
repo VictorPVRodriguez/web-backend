@@ -1,0 +1,70 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "1.0.0",
+        "title": "Ficha 8 API",
+        "description": "Ficha 8 API Information",
+        "contact":{
+            "name": "TPSI_DWB"
+        },
+        "servers": [
+            "http://localhost:3000"
+        ]
+    },
+    "paths":{
+        "/person": {
+            "post": {
+                "tags": [
+                    "person"
+                ],
+                "summary": "Create person",
+                "description": "This can only be done by the logged in user.",
+                "operationID": "createPerson",
+                "produces":[
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Created person object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Person"
+                        }
+                    }
+                ],
+                "responses":{
+                    "default":{
+                        "description": "sucessful operation"
+                    }
+                }
+            }
+        }
+    },
+    "definitions":{
+        "Person": {
+            "type": "object",
+            "properties":{
+                "ID": {
+                    "Type": "integer",
+                    "x-primary-key": true
+                },
+                "firstname": {
+                    "type": "String"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "profession": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        }
+    }
+}
